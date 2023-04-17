@@ -15,7 +15,7 @@ class CheckNudity extends StatefulWidget {
 class _CheckNudityState extends State<CheckNudity> {
    File? _imageFile;
   bool _isNudityDetected = false;
-
+  String nudity="0";
   Future<void> _pickImage(ImageSource source) async {
     final imageFile = await ImagePicker().pickImage(source: source);
     if (imageFile != null) {
@@ -44,8 +44,10 @@ Future<void> _detectNudity() async {
   final result = jsonDecode(response.body);
   Logger().wtf(result.toString());
   setState(() {
-    _isNudityDetected = result['nudity']['raw'] > 0.10;
+    _isNudityDetected = result['nudity']['raw'] > 0.05;
+    nudity="${result['nudity']['raw']}";
   });
+
 }
 
   @override
@@ -82,6 +84,7 @@ Future<void> _detectNudity() async {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              Text("nudity:$nudity"),
           ],
         ),
       );
