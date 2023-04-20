@@ -1,5 +1,6 @@
 import 'package:demo_fluttter_app/widgets/nudity.dart';
 import 'package:demo_fluttter_app/widgets/bad_words.dart';
+import 'package:demo_fluttter_app/widgets/pick_image.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,6 +16,11 @@ class HomeScreen extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text("Demo"),
+        actions: [
+          ElevatedButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => PickImage(),));
+          }, child: Text("click"))
+        ],
       ),
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
