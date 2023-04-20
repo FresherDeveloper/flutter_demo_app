@@ -1,5 +1,6 @@
 import 'package:demo_fluttter_app/widgets/nudity.dart';
 import 'package:demo_fluttter_app/widgets/bad_words.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,7 +16,6 @@ class HomeScreen extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text("Demo"),
-        
       ),
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
